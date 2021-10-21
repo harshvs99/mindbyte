@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Activities</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+           <meta name="keywords" content="schools">
+        <meta http-equiv="refresh" content="60">
+        <link rel = "icon" href ="img/a13.jpg"
+        type = "image/x-icon">
+         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
+  
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+       <link rel="stylesheet" href="style.css" type="text/css">
+ 
+    </head>
+    <body>
+        
+      <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+            <div class="navbar-header">
+                <img src="img/logo1.png" alt="kpmglogo" class="img-responsive navbar-fixed-top" width="100" height="100" style="margin-top: 0 " >
+                <a href="#" class="navbar-brand "><span style="color: white" >KPMG School </span></a>
+            </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="index.html" ><span class="glyphicon glyphicon-home" style="color:white"></span> <span style="color: white" >Home</span></a></li>
+                                       <li><a href="about.html" ><span class="glyphicon glyphicon-info-sign
+                                                                          " style="color:white"></span> <span style="color: white" >About</span></a></li>
+                   
+                                                                          <li><a href="students.html " ><span class="glyphicon glyphicon-user" style="color:white" ></span> <span style="color: white" >Students</span></a></li>
+                                                                          <li><a href="teacher.html " ><span class="glyphicon glyphicon-user" style="color:white" ></span> <span style="color: white" >Teacher </span></a></li>
+                    
+                                                                          <li><a href="login.html" ><span class="glyphicon glyphicon-log-in" style="color:white" ></span><span style="color: white" > Login </span></a></li>
+                                                                          <li><a href="admission.html " ><span class="glyphicon glyphicon-calendar" style="color:white" ></span><span style="color: white" > Admission</span></a></li>
+                                                                          <li><a href="activities.html " ><span class="glyphicon glyphicon-camera" style="color:white" ></span> <span style="color: white" >Activities</span> </a></li>
+                </ul>
+            </div>
+        </div>
+        </nav>
+        <hr>
+  <div class="slideshow-container">
+
+  <!-- Full-width images with number and caption text -->
+  <div class="mySlides fade">
+    <div class="numbertext">1 / 5</div>
+    <img src="img/image1.png" style="width:100%">
+    <div class="text">Dance Floor</div>
+  </div>
+
+  <div class="mySlides fade">
+    <div class="numbertext">2 / 5</div>
+    <img src="img/image2.png" style="width:100%">
+    <div class="text">Cricket Ground</div>
+  </div>
+
+  <div class="mySlides fade">
+    <div class="numbertext">3 / 5</div>
+    <img src="img/image3.png" style="width:100%">
+    <div class="text">Swimming pool</div>
+  </div>
+ <div class="mySlides fade">
+    <div class="numbertext">4 / 5</div>
+    <img src="img/image4.png" style="width:100%">
+    <div class="text">Football Ground</div>
+  </div>
+ <div class="mySlides fade">
+    <div class="numbertext">5 / 5</div>
+    <img src="img/image5.png" style="width:100%">
+    <div class="text">Basket Ball Court</div>
+  </div>
+  <!-- Next and previous buttons -->
+  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+  <a class="next" onclick="plusSlides(1)">&#10095;</a>
+</div>
+<br>
+
+<!-- The dots/circles -->
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span>
+  <span class="dot" onclick="currentSlide(2)"></span>
+  <span class="dot" onclick="currentSlide(3)"></span>
+  <span class="dot" onclick="currentSlide(4)"></span>
+  <span class="dot" onclick="currentSlide(5)"></span>
+</div>
+
+<script>
+var slideIndex = 1;
+showSlides(slideIndex);
+
+// Next/previous controls
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+// Thumbnail image controls
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+}
+</script>
+
+        
+        
+        
+        
+            <footer>
+            <div class="container">
+                <center>
+                    <span style="color: white"> Copyright © KPMG school. All Rights  Reserved ​KGS </span>
+                </center>
+            </div>
+                
+        </footer>
+            
+            
+            
+    </body>
+</html>
