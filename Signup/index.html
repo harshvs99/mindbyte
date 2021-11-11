@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Login</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    
+</head>
+<body>
+    <script type="text/javascript">
+        function validateForm() {
+            let Aname = document.forms["myForm"]["aname"].value;
+            let AEmail = document.forms["myForm"]["aemail"].value;
+            let pass = document.forms["myForm"]["password"].value;
+            if (Aname == "") {
+                alert("Name must be filled out"); 
+            }
+            else if (AEmail == "") {
+                alert("Email must be filled");
+            }
+            else if(pass == "") {
+                alert("Password must be filled");
+            }
+            else {
+                alert("Login Successful")
+            }
+  }
+
+    </script>
+    <center>
+        <div class="loginbox">
+
+        <h1>  Sign In </h1>
+
+        <form name="myForm">
+            <p><strong> Name</strong> </p>
+            <input type="text" id="aname" placeholder="Enter Name">
+            <p><strong> Email</strong></p>
+            <input type="email" id="aemail" placeholder="Enter valid EmailId">
+            <p><strong>Password</strong></p>
+            <input type="password" id="password" placeholder="Enter Password">
+            <br>
+            <input type="submit"  value="Login" onclick="validateForm();"/>
+            <br>
+            <a href="#">Forgotten Password?</a>
+            <br>
+            <a href="#">Don't have an Account?</a>
+        </form>
+        </div>
+        </center>
+
+</body>
+</html>
