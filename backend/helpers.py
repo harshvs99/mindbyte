@@ -1,18 +1,23 @@
+# Author: Harshvardhan Singh (harshvardhans3@kpmg.com)
+# Helper code snippets, for each function
+
+from tables import *
 import datetime as dt
 import uuid
+from flask.globals import session
 import redis
+session = Session()
 
 loginTokens = {}
 cacheTokens = redis.Redis()
 
-
 def getLoginToken(enteredUsername, enteredPassword):
     try:
         data = {"login": None, "token": None, "user_display_name": None, "errorMessage": None}
-        loginCredentials = {
-            "U": "U",
-            "Harsh": "harsh"
-        }
+        loginCredentials = {}
+        users = session.query(User).all()
+        for user in users:
+            loginCredentials[user.username] = user.password
 
         print("LoginCreds so far: ", loginCredentials)
         if enteredUsername in loginCredentials:

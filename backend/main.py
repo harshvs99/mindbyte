@@ -1,4 +1,7 @@
-# from tables import *
+# Author: Harshvardhan Singh (harshvardhans3@kpmg.com)
+# Main driver code for the project backend
+
+from tables import *
 import redis
 import json
 import uuid
