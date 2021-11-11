@@ -1,12 +1,13 @@
 create database Mindbyte;
 use Mindbyte;
-create table Test1(
+create table LoginTable(
 	id int NOT NULL,
-	first varchar (255),
-    last varchar (255)
+	username varchar (255),
+    password varchar (255)
 );
-INSERT INTO Test1 VALUES(1, "Lorem", "Ipsum");
-INSERT INTO Test1 VALUES(2, "Harsh", "Singh");
-INSERT INTO Test1 VALUES(3, "Rakesh", "R");
-INSERT INTO Test1 VALUES(4, "Mind", "Byte");
-select * from Test1;
+
+INSERT INTO LoginTable VALUES(1, "Mindbyte", "password");
+INSERT INTO LoginTable VALUES(2, "Harsh", "Singh");
+INSERT INTO LoginTable VALUES(3, "Rakesh", "R");
+INSERT INTO LoginTable VALUES(4, "U", "U");
+select * from LoginTable;
