@@ -11,26 +11,28 @@ app = Flask(__name__)
 cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
 
+
 @app.route('/login', methods=['GET'])
 @cross_origin()
 def login():
-    data={"login":None,"token":None,"user_display_name":None,"errorMessage":None}
+    data = {"login": None, "token": None, "user_display_name": None, "errorMessage": None}
     print(request.args.get('user'))
     print(request.args.get('password'))
     enteredUsername = request.args.get('user')
     enteredPassword = request.args.get('password')
     if enteredUsername is None:
-        return Response('Incomplete Info (Username missing)',500)
+        return Response('Incomplete Info (Username missing)', 500)
     elif enteredPassword is None:
-        return Response('Incomplete Info (Password missing)',500)
+        return Response('Incomplete Info (Password missing)', 500)
 
     data = getLoginToken(enteredUsername, enteredPassword)
     print("data: ", data)
     if 'error' in data:
-            return jsonify(data),400
+        return jsonify(data), 400
 
     # data = resToken
     return json.dumps(data)
+
 
 if __name__ == "__main__":
     app.run(debug=True, port=6003)
