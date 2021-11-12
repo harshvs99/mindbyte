@@ -19,8 +19,6 @@ app.config['CORS_HEADERS'] = 'Content-Type'
 @cross_origin()
 def login():
     data = {"login": None, "token": None, "user_display_name": None, "errorMessage": None}
-    print(request.args.get('user'))
-    print(request.args.get('password'))
     enteredUsername = request.args.get('user')
     enteredPassword = request.args.get('password')
     if enteredUsername is None:
@@ -33,7 +31,6 @@ def login():
     if 'error' in data:
         return jsonify(data), 400
 
-    # data = resToken
     return json.dumps(data)
 
 
