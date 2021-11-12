@@ -6,10 +6,12 @@ import datetime as dt
 import uuid
 from flask.globals import session
 import redis
+
 session = Session()
 
 loginTokens = {}
 cacheTokens = redis.Redis()
+
 
 def getLoginToken(enteredUsername, enteredPassword):
     try:
