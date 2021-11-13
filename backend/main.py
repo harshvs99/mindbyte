@@ -8,7 +8,7 @@ import uuid
 from flask import Flask, Response, jsonify, request
 from flask_cors import CORS, cross_origin
 from sqlalchemy import and_, desc
-from helpers import getLoginToken
+from helpers import getLoginToken, initativesDashboard
 
 app = Flask(__name__)
 cors = CORS(app)
@@ -33,6 +33,12 @@ def login():
 
     return json.dumps(data)
 
+@app.route('/dashboard', methods=['GET'])
+@cross_origin()
+def dashboard():
+    data = {"login": None, "token": None, "user_display_name": None, "errorMessage": None}
+    token = request.args.get('token')
+    return jsonify(initativesDashboard(token))
 
 if __name__ == "__main__":
     app.run(debug=True, port=6003)
