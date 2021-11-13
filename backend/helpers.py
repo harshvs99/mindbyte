@@ -1,6 +1,7 @@
 # Author: Harshvardhan Singh (harshvardhans3@kpmg.com)
 # Helper code snippets, for each function
 
+from logging import error
 from tables import *
 import datetime as dt
 import uuid
@@ -29,11 +30,12 @@ def getLoginToken(enteredUsername, enteredPassword):
                 token = str(uuid.uuid4())
                 # loginTokens[enteredUsername] = token
                 ttl = dt.timedelta(seconds=86400)  # 86400 seconds in a day (to set to expire at the end of the day)
-                cacheTokens.setex(enteredUsername, ttl, value=token)
+                cacheTokens.setex(enteredUsername, ttl, value=token) #token expires in a day
                 data['token'] = token
             else:
                 data['login'] = "not_authenticated"
                 data['errorMessage'] = "Username and/or Password is Incorrect"
+        
         else:
             data['login'] = "not_authenticated"
             data['errorMessage'] = "Username and/or Password is Incorrect"
@@ -41,3 +43,14 @@ def getLoginToken(enteredUsername, enteredPassword):
 
     except Exception as e:
         return {"error": str(e)}
+
+def initativesDashboard(token):
+    try:
+        data = {"login": None, "token": None, "user_display_name": None, "errorMessage": None}
+        if(token == "ee0390f1-8ee1-4d7b-84cf-c3f6ffd1fbf3"):
+            return ("Hello World")
+        else:
+            return ("Not Authenticated")
+    except Exception as e:
+        print(e)
+        return {"error":str(e)}
