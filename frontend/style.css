@@ -1,5 +1,16 @@
 @import url("bootstrap.min.css");
 @import url("bootstrap-theme.css");
+
+.login-form{
+    padding-left: 30%;
+    padding-right: 30%;
+    padding-top: 10%;
+}
+
+.login-button{
+    background-color: black;
+}
+
 .navclr1{
     color: dodgerblue;
     overflow: hidden;
