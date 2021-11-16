@@ -7,6 +7,7 @@ import datetime as dt
 import uuid
 from flask.globals import session
 import redis
+from flask_table import Table, Col
 
 session = Session()
 
@@ -51,6 +52,19 @@ def initativesDashboard(token):
             return ("Hello World")
         else:
             return ("Not Authenticated")
+    except Exception as e:
+        print(e)
+        return {"error":str(e)}
+
+# Operations Page
+# For choosing people with required skillsets for a project
+# 1. Projects: Will show a list of ongoing projects - start date, end date and skillsets required
+# 2. People: Show employee name, role, designation, skills
+# 3. Pipeline: Show list of future projects - expected start date, skillsets required
+def operationsProjects(token):
+    # show list of of ongoing projects : start date, end date, skills required
+    try:
+        print("Hello World")
     except Exception as e:
         print(e)
         return {"error":str(e)}

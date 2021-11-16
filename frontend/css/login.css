@@ -1,0 +1,52 @@
+@import url("bootstrap.min.css");
+@import url("bootstrap-theme.css");
+
+.login-form{
+    padding-left: 30%;
+    padding-right: 30%;
+    padding-top: 10%;
+}
+
+.login-button{
+    background-color: black;
+}
+
+.navclr1{
+    color: dodgerblue;
+    overflow: hidden;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+}
+.navclr1{
+    color: dodgerblue;
+    overflow: hidden;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+    padding-top: 0px;
+    margin-top: 0px;
+
+}
+
+.mainclr{
+    background-color: #00acc1;
+    margin-top: auto;
+    padding-top: 50px;
+    margin: auto;
+    border: 1px solid black;
+   
+}
+
+   footer{
+           padding: 10px 0;
+           background-color: #101010;
+           color: #9d9d9d;
+           bottom: 0;
+           width: 100%;
+
+   }
+.capfont{
+     font-family: "Sofia", sans-serif;
+}
+.headfont{
+      font-family: "Audiowide", sans-serif;
+}

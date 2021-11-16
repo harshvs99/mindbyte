@@ -40,5 +40,12 @@ def dashboard():
     token = request.args.get('token')
     return jsonify(initativesDashboard(token))
 
+@app.route('/operations', methods=['GET'])
+@cross_origin()
+def operations():
+    data = {"login": None, "token": None, "user_display_name": None, "errorMessage": None}
+    token = request.args.get('token')
+    return jsonify(initativesDashboard(token))
+    
 if __name__ == "__main__":
     app.run(debug=True, port=6003)
