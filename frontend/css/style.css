@@ -1,0 +1,24 @@
+@use "@material/icon-button";
+@use "@material/top-app-bar/mdc-top-app-bar";
+@include icon-button.core-styles;
+
+@use "@material/drawer";
+@use "@material/list";
+@include drawer.core-styles;
+@include drawer.dismissible-core-styles;
+@include drawer.modal-core-styles;
+@include list.core-styles;
+
+@use "@material/checkbox";
+@use "@material/icon-button";
+@use "@material/data-table/data-table";
+@include checkbox.core-styles;
+@include icon-button.core-styles;
+@include data-table.core-styles;
+@include data-table.theme-baseline;
+
+
+.mdc-data-table{
+    margin-left: auto;
+    margin-right: auto;
+}

@@ -1,3 +1,5 @@
 /react-frontend/
 dump.rdb
 node-modules
+/new-frontend/
+frontend/node_modules/
