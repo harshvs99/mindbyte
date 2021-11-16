@@ -1,0 +1,164 @@
+.a{
+    margin-left: 70px;
+    margin-right: 70px;
+    padding-bottom: 400px;
+    
+}
+.text{
+    padding: 100px;
+    margin-top: 100px;
+   
+    border-radius: 25px;
+    border: solid black;
+  background: #b3b3ff; 
+    text-align: center;
+}
+ footer{
+           padding-top: 10px ;
+         background-color: lightblue;
+           color: #9d9d9d;
+           bottom: 0;
+           width: 100%;
+
+   }
+.sec1{
+    margin-right: 50px;
+    margin-left: 50px;
+    margin-bottom: 10px;
+    padding-bottom: 20px;
+    margin-top: 80px;
+    align-content: center;
+    background-color: azure;
+}
+.bt1{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 250px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.bt2{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 150px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.bt3{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 150px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.sec2 , .sec3 {
+    margin-right: 50px;
+    margin-left: 50px;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    background-color: azure;
+}
+
+.bt4  {
+    margin-left: 80px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+}
+.bt5  {
+    margin-left: 80px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+}
+.bd{
+    padding-bottom: 10%;
+}
+.sec4 {
+    margin-right: 50px;
+    margin-left: 50px;
+    margin-top: 80px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    background-color: azure;
+}
+.bt6  {
+    margin-left: 550px;
+    padding-left: 80px;
+    padding-right: 80px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+}
+#head{
+    margin-top: 60px;
+    margin-bottom: 10px;
+    margin-left: 40px;
+    padding-left: 10px;
+   font-size: 30px;
+ 
+}
+#p1{
+    margin-left: 40px;
+    margin-top: 40px;
+    margin-right: 40px;
+    margin-bottom: 10px;
+    padding: 20px;
+}
+.container1{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+#p2{
+    margin-left: 40px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 40px;
+    margin-bottom: 10px;
+    padding: 20px;
+}
+form{
+    margin-left: 40px;
+    padding-left: 40px;
+    padding-right: 40px;
+    margin-right: 40px;
+    margin-bottom: 10px;
+}
+#p3{
+     margin-left: 40px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 40px;
+    margin-bottom: 10px;
+    padding: 20px;
+}
+.sec5{
+     margin-right: 40px;
+    margin-left: 40px;
+    margin-top: 10px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    background-color: azure;
+}
+#myteam{
+   text-align: center;
+    margin-top: 80px;
+    background-image: linear-gradient(to right, blue , white);
+    border-radius: 80px;
+   
+
+    border-bottom: 6px solid red;
+}
