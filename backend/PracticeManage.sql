@@ -11,3 +11,7 @@ INSERT INTO user VALUES(2, "Harsh", "Singh");
 INSERT INTO user VALUES(3, "Rakesh", "R");
 INSERT INTO user VALUES(4, "U", "U");
 select * from user;
+
+show tables
+
+

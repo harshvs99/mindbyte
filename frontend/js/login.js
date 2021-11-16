@@ -2,6 +2,7 @@
 // Demo login form to demonstrate API functions to team
 
 var loggedIn = {};
+var varToken= "";
 
 function httpGet(theUrl){
     var xmlHttp = new XMLHttpRequest();
@@ -13,7 +14,9 @@ function httpGet(theUrl){
 function validate(){
     var username = document.getElementById("user").value;
     var password = document.getElementById("password").value;
-    var hitString = "http://127.0.0.1:6003/login?user="+username+"&password="+password
+    var hitServer = "http://127.0.0.1:6003"
+    var hitString = hitServer+"/login?user="+username+"&password="+password;
+    var hitString = hitServer+"/dashboard/?token=" + varToken 
     console.log(hitString)
     const retObj = JSON.parse(httpGet(hitString));
     console.log(retObj);
@@ -26,6 +29,6 @@ function validate(){
     else{
         alert(retObj["errorMessage"]);
     }
-    window.location = "login.html"; 
+    window.location.href = "index.html"; 
 }
 
