@@ -8,7 +8,7 @@ import uuid
 from flask import Flask, Response, jsonify, request
 from flask_cors import CORS, cross_origin
 from sqlalchemy import and_, desc
-from helpers import getLoginToken, initativesDashboard, operationsProjects
+from helpers import getLoginToken, operationsProjects, operationsPeople
 
 app = Flask(__name__)
 cors = CORS(app)
@@ -45,9 +45,15 @@ def dashboard():
 @app.route('/operations', methods=['GET'])
 @cross_origin()
 def operations():
-    disp_table = operationsProjects()
-    columns = disp_table.columns
-    return render_template('display.html', columns=columns, table_data=disp_table)
+    # if not authenticateAPI(token):
+    #     return {"error": "Not Authenticated"}
+    choice = request.args.get('choice')
+    if choice == "projects":
+        return operationsProjects()
+    elif choice == "people":
+        return operationsPeople()
+    else:
+        return {"error": "Wrong Choice entered"}
 
 
 if __name__ == "__main__":

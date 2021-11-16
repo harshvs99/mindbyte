@@ -26,13 +26,27 @@
 
 .mdc-drawer {
     z-index: 2;
-  display: flex;
+  display: inline;
   /*height: 100vh;*/
+
+}
+.heading-text{
+    text-align: center;
+    font-size:1.5em;
+    /*font-family: Roboto, sans-serif;*/
+    font-family: "Open Sans";
+    font-style: normal;
+}
+.body-text{
+    font-family: Roboto, sans-serif;
 }
 
-/*.mdc-drawer-app-content {*/
-/*  flex: auto;*/
-/*  overflow: auto;*/
-/*  position: relative;*/
-/*}*/
-
+.mdc-drawer-app-content {
+    display: inline;
+  flex: auto;
+  overflow: auto;
+  position: relative;
+}
+.mdc-drawer a:hover {
+  background-color: #9d9d9d;
+}

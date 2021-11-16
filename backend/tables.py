@@ -20,3 +20,23 @@ class User(Base):
     id = Column(Integer, primary_key=True)
     username = Column(String(255))
     password = Column(String(255))
+
+
+class Project(Base):
+    __tablename__ = 'project'
+    id = Column(Integer, primary_key=True)
+    name = Column(String(255))
+    startDate = Column(DateTime)
+    endDate = Column(DateTime)
+    status = Column(String(255))  # status: ongoing, past, future
+
+
+class Employee(Base):
+    __tablename__ = 'employee'
+    id = Column(Integer, primary_key=True)
+    name = Column(String(255))
+    role = Column(String(255))
+    designation = Column(String(255))
+    skill = Column(String(255))
+    project = Column(Integer, ForeignKey('project.id'))
+
