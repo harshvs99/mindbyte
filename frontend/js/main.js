@@ -26,3 +26,7 @@ listEl.addEventListener('click', (event) => {
 document.body.addEventListener('MDCDrawer:closed', () => {
     mainContentEl.querySelector('input, button').focus();
 });
+
+//button
+import {MDCRipple} from '@material/ripple';
+const buttonRipple = new MDCRipple(document.querySelector('.mdc-button'));

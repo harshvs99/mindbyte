@@ -1,6 +1,6 @@
 # Author: Harshvardhan Singh (harshvardhans3@kpmg.com)
 # Main driver code for the project backend
-
+from flask import Flask
 from tables import *
 import redis
 import json
@@ -8,7 +8,7 @@ import uuid
 from flask import Flask, Response, jsonify, request
 from flask_cors import CORS, cross_origin
 from sqlalchemy import and_, desc
-from helpers import getLoginToken, initativesDashboard
+from helpers import getLoginToken, operationsProjects, operationsPeople
 
 app = Flask(__name__)
 cors = CORS(app)
@@ -33,6 +33,7 @@ def login():
 
     return json.dumps(data)
 
+
 @app.route('/dashboard', methods=['GET'])
 @cross_origin()
 def dashboard():
@@ -40,12 +41,20 @@ def dashboard():
     token = request.args.get('token')
     return jsonify(initativesDashboard(token))
 
+
 @app.route('/operations', methods=['GET'])
 @cross_origin()
 def operations():
-    data = {"login": None, "token": None, "user_display_name": None, "errorMessage": None}
-    token = request.args.get('token')
-    return jsonify(initativesDashboard(token))
-    
+    # if not authenticateAPI(token):
+    #     return {"error": "Not Authenticated"}
+    choice = request.args.get('choice')
+    if choice == "projects":
+        return operationsProjects()
+    elif choice == "people":
+        return operationsPeople()
+    else:
+        return {"error": "Wrong Choice entered"}
+
+
 if __name__ == "__main__":
-    app.run(debug=True, port=6003)
+    app.run(debug=True, port=6002)
