@@ -15,21 +15,44 @@ function side_open(){
                 document.getElementById("mySideBar").style.display = "block";
         }
 
-function append_json(choice){
-    let hitServer = "http://127.0.0.1:6003";
+function append_json_projects(){
+    let choice = "projects" // choice - projects, people, pipeline
+    let hitServer = "http://1ea8-203-92-61-66.ngrok.io";
     let hitString = hitServer+"/operations?choice="+choice;
-    // choice - projects, people, pipeline
-    const data = JSON.parse(httpGet(hitString));
-    console.log(data)
-    alert("Get data")
-    var table = document.getElementById('gable');
-            data.forEach(function(object) {
-                var tr = document.createElement('tr');
-                tr.innerHTML = '<td>' + object.name + '</td>' +
-                '<td>' + object.startdate + '</td>' +
-                '<td>' + object.enddate + '</td>' +
-                '<td>' + object.status + '</td>';
-                table.appendChild(tr);
-            });
+    let data = JSON.parse(httpGet(hitString));
 
+    var table = document.getElementById('projects-table');
+    data.forEach(
+        function(object){
+            var tr = document.createElement('tr');
+            tr.className = "mdc-data-table__header-row";
+            tr.innerHTML = 
+                    '<th class="mdc-data-table__cell" scope="row">'+ object.clientname + '</th>' +
+                    '<th class="mdc-data-table__cell" scope="row">'+ object.projectname+'</th>' +
+                    '<td class="mdc-data-table__cell mdc-data-table__cell--numeric">'+ (object.startdate).replace('00:00:00 GMT','') +'</td>'+
+                    '<td class="mdc-data-table__cell mdc-data-table__cell--numeric">'+ (object.enddate).replace('00:00:00 GMT','') +'</td>'+
+                    '<td class="mdc-data-table__cell">'+ object.skillsrequired +'</td>'+
+                    '<td class="mdc-data-table__cell">'+ object.status+'</td>';
+                    table.append(tr);
+        });
+}
+
+function append_json_people(){
+    let choice = "people" // choice - projects, people, pipeline
+    let hitServer = "http://1ea8-203-92-61-66.ngrok.io";
+    let hitString = hitServer+"/operations?choice="+choice;
+    let data = JSON.parse(httpGet(hitString));
+
+    var table = document.getElementById('people-table');
+    data.forEach(
+        function(object){
+            var tr = document.createElement('tr');
+            tr.className = "mdc-data-table__header-row";
+            tr.innerHTML = 
+                    '<th class="mdc-data-table__cell" scope="row">'+ object.name + '</th>' +
+                    '<th class="mdc-data-table__cell" scope="row">'+ object.role+'</th>' +
+                    '<td class="mdc-data-table__cell">'+ object.designation +'</td>'+
+                    '<td class="mdc-data-table__cell">'+ object.skill+'</td>';
+                    table.append(tr);
+        });
 }
