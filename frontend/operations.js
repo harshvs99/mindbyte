@@ -1,6 +1,6 @@
 // Author: Harshvardhan Singh (harshvardhans3@kpmg.com)
 // Get requests and table populating
-function httpGet(theUrl){
+function httpGet(theUrl) {
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.open("GET", theUrl, false); // false for synchronous request
     xmlHttp.send(null);
