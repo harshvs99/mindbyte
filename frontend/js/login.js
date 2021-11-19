@@ -15,6 +15,7 @@ function validate(){
     var username = document.getElementById("user").value;
     var password = document.getElementById("password").value;
     var hitServer = "http://127.0.0.1:6003"
+    alert("Hello")
     var hitString = hitServer+"/login?user="+username+"&password="+password;
     const retObj = JSON.parse(httpGet(hitString));
     console.log(retObj);

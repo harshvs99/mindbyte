@@ -19,7 +19,7 @@ app.config['CORS_HEADERS'] = 'Content-Type'
 @cross_origin()
 def login():
     data = {"login": None, "token": None, "user_display_name": None, "errorMessage": None}
-    enteredUsername = request.args.get('user')
+    enteredUsername = request.args.get('username')
     enteredPassword = request.args.get('password')
     if enteredUsername is None:
         return Response('Incomplete Info (Username missing)', 500)
@@ -49,12 +49,13 @@ def operations():
     #     return {"error": "Not Authenticated"}
     choice = request.args.get('choice')
     if choice == "projects":
-        return operationsProjects()
+        return jsonify(operationsProjects())
     elif choice == "people":
-        return operationsPeople()
+        return jsonify(operationsPeople())
     else:
         return {"error": "Wrong Choice entered"}
 
 
 if __name__ == "__main__":
-    app.run(debug=True, port=6002)
+    #app.run(debug=True, port=80)
+    app.run(debug=True, port=6003)

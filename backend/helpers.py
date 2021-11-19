@@ -7,7 +7,6 @@ import datetime as dt
 import uuid
 from flask.globals import session
 import redis
-import pandas as pd
 
 # from flask_table import Table, Col
 
@@ -70,9 +69,8 @@ def operationsProjects():
         projects = session.query(Project).all()  # can be changed to query accordingly
         projectList = []
         for project in projects:
-            temp = {'name': project.name, 'startdate': project.startDate, 'enddate': project.endDate,
-                    'status': project.status}
-            projectList += temp
+            temp = {'clientname': project.clientname, 'projectname':project.projectname,'startdate': project.startDate, 'enddate': project.endDate,'skillsrequired':project.skillsrequired, 'status': project.projectstatus}
+            projectList.append(temp)
         return projectList
         # return render_template('display.html', columns=columns,table_data=table_d)
     except Exception as e:
@@ -80,17 +78,17 @@ def operationsProjects():
         return {"error": str(e)}
 
 
-def operationsPeople(token):
+def operationsPeople():
     # show employee name, role, designation, skill, project
     try:
-        if not authenticateAPI(token):
-            return {"error": "Not Authenticated"}
+        # if not authenticateAPI(token):
+        #     return {"error": "Not Authenticated"}
         employees = session.query(Employee).all()  # can be changed to query accordingly
         employeeList = []
         for employee in employees:
-            temp = {'name': employee.name, 'role': employee.role, 'designation': employee.designation,
-                    'skill': employee.skill, 'project': employee.project}
-            employeeList += temp
+            temp = {'name': employee.employee_name, 'role': employee.employee_role, 'designation': employee.designation,
+                    'skill': employee.skill}
+            employeeList.append(temp)
         return employeeList
         # return render_template('display.html', columns=columns,table_data=table_d)
     except Exception as e:
