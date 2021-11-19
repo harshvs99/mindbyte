@@ -21,7 +21,7 @@ function validate(){
 //    console.log(retObj);
 //    alert(retObj["login"]);
     if(retObj["login"] == "authenticated"){
-//        alert("Welcome "+retObj["user_display_name"]);
+        alert("Welcome "+retObj["user_display_name"]);
         loggedIn[retObj["user_display_name"]] = retObj["token"];
         localStorage.setItem(retObj["user_display_name"], retObj["token"]);
 //        window.location = "operations.html"; 
