@@ -4,3 +4,4 @@ node-modules
 /new-frontend/
 frontend/node_modules/
 /complete/
+frontend/complete/_common.scss

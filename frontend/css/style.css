@@ -17,6 +17,7 @@
 @include data-table.core-styles;
 @include data-table.theme-baseline;
 
+@use "@material/button/styles";
 
 .mdc-data-table{
     margin:50px;
@@ -49,4 +50,12 @@
 }
 .mdc-drawer a:hover {
   background-color: #9d9d9d;
+}
+
+.mdc-button{
+
+  display: inline;
+  flex: auto;
+  overflow: auto;
+  position: relative;
 }
