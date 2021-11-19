@@ -12,12 +12,13 @@
 @use "@material/checkbox";
 @use "@material/icon-button";
 @use "@material/data-table/data-table";
+@use "@material/button/styles";
 @include checkbox.core-styles;
 @include icon-button.core-styles;
 @include data-table.core-styles;
 @include data-table.theme-baseline;
 
-@use "@material/button/styles";
+
 
 .mdc-data-table{
     margin:50px;

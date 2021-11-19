@@ -56,3 +56,23 @@ function append_json_people(){
                     table.append(tr);
         });
 }
+
+function append_json_pipeline(){
+    let choice = "pipeline" // choice - projects, people, pipeline
+    let hitServer = "http://1ea8-203-92-61-66.ngrok.io";
+    let hitString = hitServer+"/operations?choice="+choice;
+    let data = JSON.parse(httpGet(hitString));
+
+    var table = document.getElementById('pipeline-table');
+    data.forEach(
+        function(object){
+            var tr = document.createElement('tr');
+            tr.className = "mdc-data-table__header-row";
+            tr.innerHTML = 
+                    '<th class="mdc-data-table__cell" scope="row">'+ object.name + '</th>' +
+                    '<th class="mdc-data-table__cell" scope="row">'+ object.role+'</th>' +
+                    '<td class="mdc-data-table__cell">'+ object.designation +'</td>'+
+                    '<td class="mdc-data-table__cell">'+ object.skill+'</td>';
+                    table.append(tr);
+        });
+}
