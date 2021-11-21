@@ -49,9 +49,11 @@ def operations():
     #     return {"error": "Not Authenticated"}
     choice = request.args.get('choice')
     if choice == "projects":
-        return jsonify(operationsProjects())
+        return jsonify(operationsProjects("projects"))
     elif choice == "people":
         return jsonify(operationsPeople())
+    elif choice == "pipeline":
+        return jsonify(operationsProjects("pipeline"))
     else:
         return {"error": "Wrong Choice entered"}
 

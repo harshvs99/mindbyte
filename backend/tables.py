@@ -3,8 +3,8 @@
 
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import sessionmaker, relationship
-from sqlalchemy import Column, Integer, String, ForeignKey, Boolean, DateTime, Date, TIMESTAMP
+from sqlalchemy.orm import relation, sessionmaker, relationship
+from sqlalchemy import Column, Integer, String, ForeignKey, DateTime, Date
 import datetime
 from urllib.parse import quote
 
@@ -17,22 +17,12 @@ try:
 except: 
     Session.rollback()
 
+
 class User(Base):
     __tablename__ = 'user'
     id = Column(Integer, primary_key=True)
     username = Column(String(255))
     password = Column(String(255))
-
-
-class Project(Base):
-    __tablename__ = 'projects'
-    id = Column(Integer, primary_key=True)
-    clientname = Column(String(255))
-    projectname = Column(String(255))
-    startDate = Column(Date)
-    endDate = Column(Date)
-    skillsrequired = Column(String(255))
-    projectstatus = Column(String(255))  # status: ongoing, past, future
 
 
 class Employee(Base):
@@ -41,6 +31,28 @@ class Employee(Base):
     employee_name = Column(String(255))
     employee_role = Column(String(255))
     designation = Column(String(255))
+    # skill = Column(String(255))
+    skill_id = Column(Integer, ForeignKey('skills.id'))
+    skill = relationship("Skills", back_populates='employee')
+    project = Column(Integer, ForeignKey('projects.id'))
+
+
+class Skills(Base):
+    __tablename__= 'skills'
+    id = Column(Integer, primary_key=True)
     skill = Column(String(255))
-    #project = Column(Integer, ForeignKey('project.id'))
+    employees = relationship("Employee", back_populates="skill")
+
+    
+class Project(Base):
+    __tablename__ = 'projects'
+    id = Column(Integer, primary_key=True)
+    clientname = Column(String(255))
+    projectname = Column(String(255))
+    startDate = Column(Date)
+    endDate = Column(Date)
+    skillsrequired = Column(String(255))
+    employee = relationship("Employee")
+
+
 
