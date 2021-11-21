@@ -18,12 +18,35 @@ except:
 
 loginTokens = {}
 cacheTokens = redis.Redis()
+# My Team
+# List managers and above for the practice
 
+# Quality
+# 1. On selecting project you can see more details
+#   about it such as status
+# 2. Can have dedicated team to setup training
+# 3. Can list some courses as mandatory/voluntary   
 
 # Learning and Development
 # 1. Can view skills for projects in pipeline
 # 2. Can have a dedicated team to set up training
 # 3. Can list some courses as mandatory and voluntary (like GLMS) 
+def learningAndDevelopment(choice):
+    try:
+        if choice == "pipeline":
+            projects = session.query(Project).filter(Project.startDate>datetime.now()) # can be changed to query accordingly
+            projectList = []
+            for project in projects:
+                projectskillrequired = session.query(Skills.skill).filter(Skills.id == project.skillsrequired)[0]
+                temp = {'clientname': project.clientname, 'projectname':project.projectname,'startdate': project.startDate, 
+                'enddate': project.endDate,'skillsrequired':str(projectskillrequired)[2:-3], 'status':"Proposed" }
+                projectList.append(temp)
+            return projectList
+        if choice == "training":
+            traininglist = []
+    except Exception as e:
+        return {"error": str(e)}
+
 
 
 
@@ -46,9 +69,8 @@ def operationsProjects(choice):
             projectstatus = "Proposed"
         projectList = []
         for project in projects:
-            # if project.endDate<datetime.now() and projectstatus == "Active":
-              #s  projectstatus = "Completed"
-            temp = {'clientname': project.clientname, 'projectname':project.projectname,'startdate': project.startDate, 'enddate': project.endDate,'skillsrequired':project.skillsrequired, 'status':projectstatus }
+            projectskillrequired = session.query(Skills.skill).filter(Skills.id == project.skillsrequired)[0]
+            temp = {'clientname': project.clientname, 'projectname':project.projectname,'startdate': project.startDate, 'enddate': project.endDate,'skillsrequired':str(projectskillrequired)[2:-3], 'status':projectstatus }
             projectList.append(temp)
         return projectList
         # return render_template('display.html', columns=columns,table_data=table_d)
@@ -62,16 +84,13 @@ def operationsPeople():
         #     return {"error": "Not Authenticated"}
         employees = session.query(Employee).all()  # can be changed to query accordingly
         employeeList = []
-        a = session.query(Skills).join(Employee).filter(Employee.skill == Skills.skill)
-        for row in a:
-            print("Row: ", row)
+
         for employee in employees:
-            print("skill: ", employee.skill)
             projectskill = session.query(Skills.skill).filter(Skills.id == employee.skill)[0]
             projectname = session.query(Project.projectname).filter(Project.id == employee.project)[0]
             clientname = session.query(Project.clientname).filter(Project.id == employee.project)[0]
             temp = {'name': employee.employee_name, 'role': employee.employee_role, 'designation': employee.designation,
-                    'skill': str(projectskill)[1:-2], 'project': str(projectname)[2:-3] +", "+ str(clientname)[2:-3]}
+                    'skill': str(projectskill)[2:-3], 'project': str(projectname)[2:-3] +", "+ str(clientname)[2:-3]}
             employeeList.append(temp)
         return employeeList
     except Exception as e:

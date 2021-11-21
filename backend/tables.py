@@ -31,17 +31,15 @@ class Employee(Base):
     employee_name = Column(String(255))
     employee_role = Column(String(255))
     designation = Column(String(255))
-    # skill = Column(String(255))
-    skill_id = Column(Integer, ForeignKey('skills.id'))
-    skill = relationship("Skills", back_populates='employee')
     project = Column(Integer, ForeignKey('projects.id'))
+    skill = Column(Integer, ForeignKey('skills.id'))
 
 
 class Skills(Base):
     __tablename__= 'skills'
     id = Column(Integer, primary_key=True)
     skill = Column(String(255))
-    employees = relationship("Employee", back_populates="skill")
+    # employees = relationship("Employee", back_populates="skill")
 
     
 class Project(Base):
@@ -52,7 +50,9 @@ class Project(Base):
     startDate = Column(Date)
     endDate = Column(Date)
     skillsrequired = Column(String(255))
-    employee = relationship("Employee")
+    # employee = relationship("Employee")
 
 
-
+class Training(Base):
+    __tablename__ = "training"
+    id = Column(Integer, primary_key=True)
