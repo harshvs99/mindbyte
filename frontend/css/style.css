@@ -13,12 +13,21 @@
 @use "@material/icon-button";
 @use "@material/data-table/data-table";
 @use "@material/button/styles";
+@use "@material/card";
 @include checkbox.core-styles;
 @include icon-button.core-styles;
 @include data-table.core-styles;
 @include data-table.theme-baseline;
+@include card.core-styles;
 
-
+/*card*/
+.my-card-content {
+  padding: 16px;
+}
+.my-card {
+    height: 350px;
+    width: 350px;
+}
 
 .mdc-data-table{
     margin:50px;
@@ -26,6 +35,7 @@
     display: flex;
 }
 
+/*table*/
 .mdc-drawer {
     z-index: 2;
   display: inline;
@@ -43,6 +53,7 @@
     font-family: Roboto, sans-serif;
 }
 
+/*drawer*/
 .mdc-drawer-app-content {
     display: inline;
   flex: auto;
@@ -53,6 +64,7 @@
   background-color: #9d9d9d;
 }
 
+/*button*/
 .mdc-button{
 
   display: inline;
