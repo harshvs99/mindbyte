@@ -31,7 +31,7 @@ cacheTokens = redis.Redis()
 # 1. Can view skills for projects in pipeline
 # 2. Can have a dedicated team to set up training
 # 3. Can list some courses as mandatory and voluntary (like GLMS) 
-def learningAndDevelopment(choice):
+def learningAndDevelopment(choice, name = "abc", start = "0", end = "0"):
     try:
         if choice == "pipeline":
             projects = session.query(Project).filter(Project.startDate>datetime.now()) # can be changed to query accordingly
@@ -44,6 +44,21 @@ def learningAndDevelopment(choice):
             return projectList
         if choice == "training":
             traininglist = []
+            temp = {}
+            trainings = session.query(Training).filter(Training.dueDate>=datetime.now())
+            for training in trainings:
+                temp = {'trainingname': training.trainingname, 'startdate':training.startDate,'duedate':training.dueDate}
+            traininglist.append(temp)
+            return traininglist
+        if choice == "add_training":
+            newTraining = Training(
+                trainingname = name,
+                startDate = start,
+                dueDate = end
+            )
+            session.add(newTraining)
+            return {"message":f"{name} Added Successfully"}
+
     except Exception as e:
         return {"error": str(e)}
 

@@ -1,7 +1,7 @@
 # Author: Harshvardhan Singh (harshvardhans3@kpmg.com)
 # Used for table description
 
-from sqlalchemy import create_engine
+from sqlalchemy import create_engine, MetaData
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relation, sessionmaker, relationship
 from sqlalchemy import Column, Integer, String, ForeignKey, DateTime, Date
@@ -17,6 +17,7 @@ try:
 except: 
     Session.rollback()
 
+meta = MetaData()
 
 class User(Base):
     __tablename__ = 'user'
@@ -56,3 +57,6 @@ class Project(Base):
 class Training(Base):
     __tablename__ = "training"
     id = Column(Integer, primary_key=True)
+    trainingname = Column(String(255))
+    startDate = Column(Date)
+    dueDate = Column(Date)

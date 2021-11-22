@@ -8,7 +8,7 @@ import uuid
 from flask import Flask, Response, jsonify, request
 from flask_cors import CORS, cross_origin
 from sqlalchemy import and_, desc
-from helpers import getLoginToken, operationsProjects, operationsPeople
+from helpers import getLoginToken, operationsProjects, operationsPeople, learningAndDevelopment
 
 app = Flask(__name__)
 cors = CORS(app)
@@ -54,6 +54,22 @@ def operations():
         return jsonify(operationsPeople())
     elif choice == "pipeline":
         return jsonify(operationsProjects("pipeline"))
+    else:
+        return {"error": "Wrong Choice entered"}
+
+
+@app.route('/learndev', methods=['GET'])
+@cross_origin()
+def learndev():
+    # if not authenticateAPI(token):
+    #     return {"error": "Not Authenticated"}
+    choice = request.args.get('choice')
+    if choice == "pipeline":
+        return jsonify(learningAndDevelopment("pipeline"))
+    elif choice == "training":
+        return jsonify(learningAndDevelopment("training"))
+    elif choice == "add_training":
+        return jsonify(learningAndDevelopment("add_training", "C++ Tutorial", "2021-11-25", "2021-12-01"))
     else:
         return {"error": "Wrong Choice entered"}
 

@@ -26,6 +26,15 @@ INSERT INTO `mindbyte`.`skills` (`id`, `skill`) VALUES ('6', 'ML');
 INSERT INTO `mindbyte`.`skills` (`id`, `skill`) VALUES ('7', 'React');
 select * from skills;
 
+create table training(
+	id int NOT NULL auto_increment,
+    trainingname varchar(255) NOT NULL,
+    startDate date NOT NULL,
+    dueDate date NOT NULL,
+    primary key(id)
+);
+drop table training;
+select * from training;
 create table projects(
 	id int NOT NULL,
     clientname varchar(255) NOT NULL,
@@ -60,10 +69,12 @@ alter table employee add foreign key (skill) references skills(id);
 INSERT INTO employee VALUES(1, "R Divya", "Software Engineering", "Analyst", 1,2);
 INSERT INTO employee VALUES(2, "Rakesh", "Software Engineering", "Analyst", 2, 2);
 INSERT INTO employee VALUES(3, "Bhuvan", "Software Engineering", "Analyst", 3, 4);
-INSERT INTO employee VALUES(4, "Vipasha", "Software Engineering", "Analyst", 6,4);
+INSERT INTO employee VALUES(4, "Vipasha", "Software Engineering", "Analyst", 4,4);
 INSERT INTO employee VALUES(5, "Harshvardhan", "Data Engineering", "Analyst", 5,3);
 select * from employee;
 
 drop table projects;
 drop table employee;
 drop table skills;
+
+show databases;
